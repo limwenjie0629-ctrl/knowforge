@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { LoginForm } from "@/components/auth/login-form";
-import { WikforgeLogo } from "@/components/brand/logo";
+import { KnowforgeLogo } from "@/components/brand/logo";
 
 function LoginContent() {
   const searchParams = useSearchParams();
@@ -20,9 +20,9 @@ function LoginContent() {
     <Card>
       <CardHeader className="text-center space-y-3">
         <div className="flex justify-center">
-          <WikforgeLogo size={48} />
+          <KnowforgeLogo size={48} />
         </div>
-        <CardTitle className="text-2xl">登录 Wikforge</CardTitle>
+        <CardTitle className="text-2xl">登录 Knowforge</CardTitle>
         <CardDescription>输入您的账号信息以访问知识库</CardDescription>
       </CardHeader>
       <CardContent>

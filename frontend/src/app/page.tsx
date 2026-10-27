@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { WikforgeLogo } from "@/components/brand/logo";
+import { KnowforgeLogo } from "@/components/brand/logo";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-6 p-24">
-      <WikforgeLogo size={80} />
-      <h1 className="text-4xl font-bold tracking-tight">Wikforge</h1>
+      <KnowforgeLogo size={80} />
+      <h1 className="text-4xl font-bold tracking-tight">Knowforge</h1>
       <p className="text-muted-foreground">企业级知识库系统</p>
       <div className="flex gap-3">
         <Link

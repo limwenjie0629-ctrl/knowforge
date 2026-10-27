@@ -8,7 +8,7 @@
         DocumentProfile 数据结构、Profile Matcher。
 
 环境变量：
-    INITIAL_ADMIN_EMAIL    初始管理员邮箱（默认 admin@wikforge.local）
+    INITIAL_ADMIN_EMAIL    初始管理员邮箱（默认 admin@knowforge.local）
     INITIAL_ADMIN_PASSWORD 初始管理员明文密码（默认 admin123!A）
 
 用法::
@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 
 # ─── 默认管理员账号（可通过环境变量覆盖）─────────────────────────────
 DEFAULT_ADMIN_EMAIL = os.environ.get(
-    "INITIAL_ADMIN_EMAIL", "admin@wikforge.local"
+    "INITIAL_ADMIN_EMAIL", "admin@knowforge.local"
 )
 DEFAULT_ADMIN_PASSWORD = os.environ.get("INITIAL_ADMIN_PASSWORD", "admin123!A")
 DEFAULT_ADMIN_DISPLAY_NAME = os.environ.get(
@@ -283,7 +283,7 @@ async def create_default_profiles(session: AsyncSession) -> None:
 async def init_database() -> None:
     """Run all initialization steps in a single async session."""
     print("=" * 60)
-    print("Wikforge Database Initialization")
+    print("Knowforge Database Initialization")
     print("=" * 60)
 
     async with AsyncSessionLocal() as session:

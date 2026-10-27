@@ -117,7 +117,7 @@ def admin_user() -> MagicMock:
     """A fake authenticated admin user。"""
     user = MagicMock()
     user.id = uuid.uuid4()
-    user.email = "admin@wikforge.local"
+    user.email = "admin@knowforge.local"
     user.display_name = "Admin"
     return user
 

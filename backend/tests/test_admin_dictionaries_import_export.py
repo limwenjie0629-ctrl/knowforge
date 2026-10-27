@@ -92,7 +92,7 @@ def mock_db() -> AsyncMock:
 def admin_user() -> MagicMock:
     user = MagicMock()
     user.id = uuid.uuid4()
-    user.email = "admin@wikforge.local"
+    user.email = "admin@knowforge.local"
     user.display_name = "Admin"
     return user
 

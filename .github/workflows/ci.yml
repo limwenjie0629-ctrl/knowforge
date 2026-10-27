@@ -67,7 +67,7 @@ jobs:
           MINIO_ACCESS_KEY: minioadmin
           MINIO_SECRET_KEY: minioadmin
           JWT_SECRET_KEY: test-key-for-ci
-          INITIAL_ADMIN_EMAIL: admin@wikforge.com
+          INITIAL_ADMIN_EMAIL: admin@knowforge.com
           INITIAL_ADMIN_PASSWORD: Test@123
         # 添加超时避免某个测试 hang 整个 CI;
         # 跳过需要真实 OpenSearch/Qdrant/Postgres 的集成测试与依赖大模型的重型测试
@@ -188,7 +188,7 @@ jobs:
           MINIO_ACCESS_KEY: minioadmin
           MINIO_SECRET_KEY: minioadmin
           JWT_SECRET_KEY: test-key-for-ci
-          INITIAL_ADMIN_EMAIL: admin@wikforge.com
+          INITIAL_ADMIN_EMAIL: admin@knowforge.com
           INITIAL_ADMIN_PASSWORD: Test@123
         timeout-minutes: 30
         run: |

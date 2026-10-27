@@ -2320,7 +2320,7 @@ class TestEndToEndScoringAndReview:
 
         admin_user = MagicMock()
         admin_user.id = uuid.uuid4()
-        admin_user.email = "admin@wikforge.local"
+        admin_user.email = "admin@knowforge.local"
 
         application = FastAPI()
         application.include_router(admin_reviews_router)

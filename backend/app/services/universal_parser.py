@@ -915,7 +915,7 @@ class UniversalParser:
         PDF per source path and store the cache in ``self._office_pdf_cache``. On
         exit the temp dir (and therefore the cached PDF) is deleted.
         """
-        tmpdir = tempfile.mkdtemp(prefix="wikforge-office-")
+        tmpdir = tempfile.mkdtemp(prefix="knowforge-office-")
         self._office_pdf_cache = {}
         # Stash the temp dir on the instance so ``_office_to_pdf`` can reuse it
         # without changing its signature.
@@ -944,7 +944,7 @@ class UniversalParser:
         # one-shot temp dir on the fly. The cache is still keyed so it's safe.
         tmpdir = getattr(self, "_office_tmpdir", None)
         if tmpdir is None:
-            tmpdir = tempfile.mkdtemp(prefix="wikforge-office-oneshot-")
+            tmpdir = tempfile.mkdtemp(prefix="knowforge-office-oneshot-")
             self._office_tmpdir = tmpdir
 
         cached = self._office_pdf_cache.get(file_path)

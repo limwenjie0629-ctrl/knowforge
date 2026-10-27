@@ -7,7 +7,7 @@ import { ToastProvider } from "@/components/ui/toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wikforge - 企业知识库",
+  title: "Knowforge - 企业知识库",
   description: "企业级知识库系统，支持文档管理、智能搜索和 AI 问答",
 };
 

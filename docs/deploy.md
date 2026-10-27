@@ -1,4 +1,4 @@
-# Wikforge 部署手册
+# Knowforge 部署手册
 
 适用范围: macOS / Linux 单机部署。生产部署到 Kubernetes 见 `docs/deploy-k8s.md` (TODO)。
 
@@ -34,7 +34,7 @@
 
 ```bash
 # 1. 拷贝项目并进入目录
-git clone <repo> wikforge && cd wikforge
+git clone https://github.com/limwenjie0629-ctrl/knowforge.git knowforge && cd knowforge
 
 # 2. 准备环境变量
 cp .env.example .env
@@ -57,7 +57,7 @@ make first-run
 
 | 服务 | URL | 凭证 |
 |---|---|---|
-| Wikforge 前端 | http://localhost:${FRONTEND_PORT} | `INITIAL_ADMIN_EMAIL` / `INITIAL_ADMIN_PASSWORD` |
+| Knowforge 前端 | http://localhost:${FRONTEND_PORT} | `INITIAL_ADMIN_EMAIL` / `INITIAL_ADMIN_PASSWORD` |
 | API 文档 (Swagger) | http://localhost:${API_PORT}/docs | - |
 | LiteLLM Admin UI | http://localhost:${LITELLM_PORT}/ui | `LITELLM_UI_USERNAME` / `LITELLM_UI_PASSWORD` 或直接用 `LITELLM_MASTER_KEY` |
 | MinIO 控制台 | http://localhost:${MINIO_CONSOLE_PORT} | `MINIO_ACCESS_KEY` / `MINIO_SECRET_KEY` |
@@ -103,7 +103,7 @@ lsof -nP -iTCP:5432 -sTCP:LISTEN   # 查谁占用
 
 ### 6.3 admin 邮箱被拒
 
-pydantic `EmailStr` 不接受 `.local` / `.test` / `.example` 等保留域。改用 `admin@wikforge.com` 这类合规邮箱。
+pydantic `EmailStr` 不接受 `.local` / `.test` / `.example` 等保留域。改用 `admin@knowforge.com` 这类合规邮箱。
 
 ### 6.4 前端 "网络错误"
 
@@ -127,7 +127,7 @@ pydantic `EmailStr` 不接受 `.local` / `.test` / `.example` 等保留域。改
 
 ```bash
 docker compose stop postgres
-docker volume rm wikforge_postgres_data
+docker volume rm knowforge_postgres_data
 docker compose up -d postgres
 ```
 
@@ -137,14 +137,14 @@ docker compose up -d postgres
 
 ```bash
 # 数据库
-docker compose exec -T postgres pg_dump -U wikforge wikforge > backups/wikforge-$(date +%F).sql
+docker compose exec -T postgres pg_dump -U knowforge knowforge > backups/knowforge-$(date +%F).sql
 
 # MinIO (对象存储)
-docker run --rm -v wikforge_minio_data:/data -v $(pwd)/backups:/bak alpine \
+docker run --rm -v knowforge_minio_data:/data -v $(pwd)/backups:/bak alpine \
     tar czf /bak/minio-$(date +%F).tar.gz -C /data .
 
 # Qdrant (向量库)
-docker run --rm -v wikforge_qdrant_data:/data -v $(pwd)/backups:/bak alpine \
+docker run --rm -v knowforge_qdrant_data:/data -v $(pwd)/backups:/bak alpine \
     tar czf /bak/qdrant-$(date +%F).tar.gz -C /data .
 ```
 
@@ -152,10 +152,10 @@ docker run --rm -v wikforge_qdrant_data:/data -v $(pwd)/backups:/bak alpine \
 
 ```bash
 # 数据库
-make down && docker volume rm wikforge_postgres_data
+make down && docker volume rm knowforge_postgres_data
 make up                     # 让 postgres 重建空库
 sleep 30                    # 等就绪
-docker compose exec -T postgres psql -U wikforge -d wikforge < backups/wikforge-2026-05-17.sql
+docker compose exec -T postgres psql -U knowforge -d knowforge < backups/knowforge-2026-05-17.sql
 
 # MinIO / Qdrant 同理: docker volume rm -> 重新启动 -> tar -x 解压回 volume
 ```

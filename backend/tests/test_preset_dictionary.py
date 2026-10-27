@@ -76,7 +76,7 @@ def mock_db() -> AsyncMock:
 @pytest.fixture
 def admin_user() -> MagicMock:
     user = MagicMock()
-    user.email = "admin@wikforge.local"
+    user.email = "admin@knowforge.local"
     return user
 
 

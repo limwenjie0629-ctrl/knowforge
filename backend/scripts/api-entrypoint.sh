@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# wikforge api 容器入口脚本
+# knowforge api 容器入口脚本
 #
 # 功能:
 #   1. 等待 postgres 就绪 (compose 已用 depends_on:condition:service_healthy,

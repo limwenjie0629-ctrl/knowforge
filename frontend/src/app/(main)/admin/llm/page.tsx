@@ -13,9 +13,9 @@ import {
 /**
  * 模型配置 / LLM Gateway 入口。
  *
- * Wikforge 把多模型路由、API Key、限流、配额、调用日志等能力
+ * Knowforge 把多模型路由、API Key、限流、配额、调用日志等能力
  * 全部委托给独立部署的 LiteLLM Proxy (compose 服务名: litellm)。
- * 该服务自带 Admin UI, 比在 Wikforge 里重做一份更稳, 因此这里只
+ * 该服务自带 Admin UI, 比在 Knowforge 里重做一份更稳, 因此这里只
  * 提供入口跳转, 不再实现独立的模型管理界面。
  */
 export default function AdminLLMPage() {
@@ -39,7 +39,7 @@ export default function AdminLLMPage() {
         <CardHeader>
           <CardTitle>LiteLLM Admin UI</CardTitle>
           <CardDescription>
-            Wikforge 后端通过 LiteLLM Proxy 统一调用各家大模型。请在 LiteLLM
+            Knowforge 后端通过 LiteLLM Proxy 统一调用各家大模型。请在 LiteLLM
             自带的管理界面配置:
           </CardDescription>
         </CardHeader>
@@ -72,9 +72,9 @@ export default function AdminLLMPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>当前 Wikforge 使用的模型</CardTitle>
+          <CardTitle>当前 Knowforge 使用的模型</CardTitle>
           <CardDescription>
-            来自后端 .env 配置, 修改后需重启 wikforge-api / wikforge-worker
+            来自后端 .env 配置, 修改后需重启 knowforge-api / knowforge-worker
             容器
           </CardDescription>
         </CardHeader>

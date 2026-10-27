@@ -736,7 +736,7 @@ class TestSuggestProfileCandidate:
         """4 页中相同短文本出现 4 次 → 作为锚定的转义 regex 发出。"""
         blocks = []
         for page in range(1, 5):
-            blocks.append(self._para("Wikforge Inc. (Confidential)", page))
+            blocks.append(self._para("Knowforge Inc. (Confidential)", page))
             blocks.append(self._para(f"page {page} body", page))
         doc = self._make_doc(blocks)
 
@@ -745,7 +745,7 @@ class TestSuggestProfileCandidate:
 
         manual = candidate["profile"]["boilerplate"]["manual_patterns"]
         # 必须 anchored + escaped，匹配原文本。
-        expected = "^" + re.escape("Wikforge Inc. (Confidential)") + "$"
+        expected = "^" + re.escape("Knowforge Inc. (Confidential)") + "$"
         assert expected in manual
 
     @pytest.mark.asyncio
@@ -1151,7 +1151,7 @@ class TestOfficePageToImage:
             ),
             patch(
                 "app.services.universal_parser.tempfile.mkdtemp",
-                return_value="/tmp/wikforge-fake",
+                return_value="/tmp/knowforge-fake",
             ),
             patch(
                 "app.services.universal_parser.shutil.rmtree"
@@ -1224,7 +1224,7 @@ class TestOfficePageToImage:
             patch("app.services.universal_parser.os.makedirs"),
             patch(
                 "app.services.universal_parser.tempfile.mkdtemp",
-                return_value="/tmp/wikforge-fake",
+                return_value="/tmp/knowforge-fake",
             ),
             patch("app.services.universal_parser.shutil.rmtree"),
         ):
@@ -1250,7 +1250,7 @@ class TestOfficePageToImage:
             patch("app.services.universal_parser.os.makedirs"),
             patch(
                 "app.services.universal_parser.tempfile.mkdtemp",
-                return_value="/tmp/wikforge-fake",
+                return_value="/tmp/knowforge-fake",
             ),
             patch("app.services.universal_parser.shutil.rmtree"),
         ):
@@ -1282,7 +1282,7 @@ class TestOfficePageToImage:
             ),
             patch(
                 "app.services.universal_parser.tempfile.mkdtemp",
-                return_value="/tmp/wikforge-fake",
+                return_value="/tmp/knowforge-fake",
             ),
             patch("app.services.universal_parser.shutil.rmtree"),
             patch("pdf2image.convert_from_path", return_value=[fake_image]),

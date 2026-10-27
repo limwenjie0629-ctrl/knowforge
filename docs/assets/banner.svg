@@ -33,7 +33,7 @@
   </g>
 
   <!-- 文字主标题 -->
-  <text x="240" y="135" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif" font-size="64" font-weight="800" fill="url(#textGrad)" letter-spacing="-2">Wikforge</text>
+  <text x="240" y="135" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif" font-size="64" font-weight="800" fill="url(#textGrad)" letter-spacing="-2">Knowforge</text>
 
   <!-- 副标题 -->
   <text x="240" y="180" font-family="-apple-system, system-ui, 'Segoe UI', sans-serif" font-size="22" font-weight="500" fill="#A5B4FC" letter-spacing="0.5">企业级知识库系统  ·  RAG · LLM · 智能检索</text>

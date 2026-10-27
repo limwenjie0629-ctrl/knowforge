@@ -56,7 +56,7 @@ def stub_retrieve(query: str) -> list[str]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Wikforge retrieval eval")
+    parser = argparse.ArgumentParser(description="Knowforge retrieval eval")
     parser.add_argument(
         "--backend",
         choices=["stub", "live"],
@@ -84,7 +84,7 @@ def main() -> int:
         service = SearchService(embedding_service=EmbeddingService())
 
         async def _live_async(query: str) -> list[str]:
-            allowed = os.environ.get("WIKFORGE_EVAL_SPACES", "").split(",")
+            allowed = os.environ.get("KNOWFORGE_EVAL_SPACES", "").split(",")
             allowed = [s for s in allowed if s]
             resp = await service.search(
                 query=query,

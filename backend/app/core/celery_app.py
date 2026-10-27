@@ -31,7 +31,7 @@ TASK_MODULES = [
 ]
 
 celery_app = Celery(
-    "wikforge",
+    "knowforge",
     broker=settings.celery_broker_url,
     backend=settings.celery_result_backend,
     include=TASK_MODULES,

@@ -44,12 +44,12 @@ def _install_qdrant_stubs() -> None:
         pass
 
     if "qdrant_client" in sys.modules and getattr(
-        sys.modules["qdrant_client"], "_wikforge_test_stub", False
+        sys.modules["qdrant_client"], "_knowforge_test_stub", False
     ):
         return  # idempotent
 
     qdrant_pkg = types.ModuleType("qdrant_client")
-    qdrant_pkg._wikforge_test_stub = True  # type: ignore[attr-defined]
+    qdrant_pkg._knowforge_test_stub = True  # type: ignore[attr-defined]
 
     class _StubQdrantClient:
         def __init__(self, *args: Any, **kwargs: Any) -> None:  # pragma: no cover

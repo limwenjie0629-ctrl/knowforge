@@ -44,7 +44,7 @@ npx playwright show-trace e2e-results/artifacts/.../trace.zip
 
 - `PLAYWRIGHT_BASE_URL`：覆盖 baseURL（默认 http://localhost:3000）
 - `PLAYWRIGHT_SKIP_WEBSERVER=1`：跳过自动启动 dev server
-- `E2E_USERNAME` / `E2E_PASSWORD`：登录凭据（默认 e2e@wikforge.local / e2e-pass-123）
+- `E2E_USERNAME` / `E2E_PASSWORD`：登录凭据（默认 e2e@knowforge.local / e2e-pass-123）
 
 ## 文件结构
 

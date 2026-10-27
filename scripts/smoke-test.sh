@@ -1,11 +1,11 @@
 #!/bin/bash
-# wikforge 端到端冒烟测试
+# knowforge 端到端冒烟测试
 # 流程: login -> 创建 space -> 上传文档 -> 等待处理 -> 搜索 -> RAG 提问
 
 set -e
 
 API="http://localhost:8000"
-EMAIL="${INITIAL_ADMIN_EMAIL:-admin@wikforge.com}"
+EMAIL="${INITIAL_ADMIN_EMAIL:-admin@knowforge.com}"
 PASSWORD="${INITIAL_ADMIN_PASSWORD:-Admin@123}"
 
 echo "==[1/6] 登录 admin =================================================="
@@ -38,11 +38,11 @@ echo "✓ space_id=$SPACE_ID"
 echo ""
 echo "==[3/6] 准备并上传测试文档 =========================================="
 TMPDIR=$(mktemp -d)
-TESTDOC="$TMPDIR/wikforge-test.md"
+TESTDOC="$TMPDIR/knowforge-test.md"
 cat > "$TESTDOC" <<'EOF'
-# Wikforge 是什么
+# Knowforge 是什么
 
-Wikforge 是一个企业级知识库系统,基于 RAG 架构,
+Knowforge 是一个企业级知识库系统,基于 RAG 架构,
 支持文档智能解析、向量检索和大语言模型问答。
 
 ## 核心组件
@@ -96,7 +96,7 @@ echo ""
 echo "==[5/6] 测试搜索 ===================================================="
 SEARCH_RESP=$(curl -sS --max-time 15 -X POST "$API/api/search" \
   -H "$AUTH" -H "Content-Type: application/json" \
-  -d '{"query":"wikforge 用什么向量库","page":1,"page_size":5}')
+  -d '{"query":"knowforge 用什么向量库","page":1,"page_size":5}')
 echo "$SEARCH_RESP" | python3 -c "
 import json,sys
 d=json.load(sys.stdin)
@@ -111,7 +111,7 @@ echo ""
 echo "==[6/6] 测试 RAG 问答 ================================================"
 ANSWER=$(curl -sS --max-time 60 -X POST "$API/api/qa/ask" \
   -H "$AUTH" -H "Content-Type: application/json" \
-  -d '{"question":"wikforge 用的是什么向量数据库?","top_k":3}')
+  -d '{"question":"knowforge 用的是什么向量数据库?","top_k":3}')
 echo "$ANSWER" | python3 -c "
 import json,sys
 d=json.load(sys.stdin)

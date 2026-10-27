@@ -23,7 +23,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { useSidebarStore } from "@/stores/sidebar-store";
-import { WikforgeLogo } from "@/components/brand/logo";
+import { KnowforgeLogo } from "@/components/brand/logo";
 
 const navItems = [
   {
@@ -76,14 +76,14 @@ export function Sidebar() {
         {/* Logo */}
         <div className="flex h-14 items-center border-b px-4">
           {isCollapsed ? (
-            <Link href="/" className="mx-auto" aria-label="Wikforge">
-              <WikforgeLogo size={28} />
+            <Link href="/" className="mx-auto" aria-label="Knowforge">
+              <KnowforgeLogo size={28} />
             </Link>
           ) : (
             <Link href="/" className="flex items-center gap-2">
-              <WikforgeLogo size={28} />
+              <KnowforgeLogo size={28} />
               <span className="text-lg font-bold tracking-tight text-sidebar-foreground">
-                Wikforge
+                Knowforge
               </span>
             </Link>
           )}

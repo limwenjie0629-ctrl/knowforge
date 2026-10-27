@@ -1,5 +1,5 @@
 [project]
-name = "wikforge"
+name = "knowforge"
 version = "0.1.0"
 description = "Enterprise knowledge base system with RAG capabilities"
 requires-python = ">=3.11"

@@ -4901,7 +4901,7 @@ wheels = [
 ]
 
 [[package]]
-name = "wikforge"
+name = "knowforge"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

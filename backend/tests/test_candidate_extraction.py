@@ -377,7 +377,7 @@ class TestCandidatesExtractAuth:
 
         admin_user = MagicMock()
         admin_user.id = uuid.uuid4()
-        admin_user.email = "admin@wikforge.local"
+        admin_user.email = "admin@knowforge.local"
 
         async def _override_get_db():
             yield mock_db

@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
     # Application
-    APP_NAME: str = "Wikforge"
+    APP_NAME: str = "Knowforge"
     APP_VERSION: str = "0.1.0"
     DEBUG: bool = False
     API_PREFIX: str = "/api"
@@ -21,9 +21,9 @@ class Settings(BaseSettings):
     # PostgreSQL
     POSTGRES_HOST: str = "postgres"
     POSTGRES_PORT: int = 5432
-    POSTGRES_USER: str = "wikforge"
-    POSTGRES_PASSWORD: str = "wikforge_secret"
-    POSTGRES_DB: str = "wikforge"
+    POSTGRES_USER: str = "knowforge"
+    POSTGRES_PASSWORD: str = "knowforge_secret"
+    POSTGRES_DB: str = "knowforge"
 
     @property
     def DATABASE_URL(self) -> str:
@@ -69,7 +69,7 @@ class Settings(BaseSettings):
     MINIO_PORT: int = 9000
     MINIO_ACCESS_KEY: str = "minioadmin"
     MINIO_SECRET_KEY: str = "minioadmin"
-    MINIO_BUCKET: str = "wikforge-documents"
+    MINIO_BUCKET: str = "knowforge-documents"
     MINIO_SECURE: bool = False
 
     @property

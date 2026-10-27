@@ -12,10 +12,10 @@ Notes
 -----
 - testcontainers fixture 仅在依赖与 Docker 可用时返回真实端点；
   否则跳过相应测试。
-- compose_endpoints 通过环境变量 ``WIKFORGE_TEST_*`` 覆盖默认端点，
+- compose_endpoints 通过环境变量 ``KNOWFORGE_TEST_*`` 覆盖默认端点，
   开发者可用：
       docker compose -f docker-compose.test.yml up -d
-      WIKFORGE_TEST_POSTGRES_PORT=15432 pytest -m integration
+      KNOWFORGE_TEST_POSTGRES_PORT=15432 pytest -m integration
 """
 
 from __future__ import annotations
@@ -97,12 +97,12 @@ def compose_endpoints() -> ServiceEndpoints:
 
     若任何端口不可达，将跳过依赖此 fixture 的测试。
     """
-    host = os.getenv("WIKFORGE_TEST_HOST", "127.0.0.1")
-    pg_port = int(os.getenv("WIKFORGE_TEST_POSTGRES_PORT", "15432"))
-    redis_port = int(os.getenv("WIKFORGE_TEST_REDIS_PORT", "16379"))
-    os_port = int(os.getenv("WIKFORGE_TEST_OPENSEARCH_PORT", "19200"))
-    qdrant_port = int(os.getenv("WIKFORGE_TEST_QDRANT_PORT", "16333"))
-    minio_port = int(os.getenv("WIKFORGE_TEST_MINIO_PORT", "19000"))
+    host = os.getenv("KNOWFORGE_TEST_HOST", "127.0.0.1")
+    pg_port = int(os.getenv("KNOWFORGE_TEST_POSTGRES_PORT", "15432"))
+    redis_port = int(os.getenv("KNOWFORGE_TEST_REDIS_PORT", "16379"))
+    os_port = int(os.getenv("KNOWFORGE_TEST_OPENSEARCH_PORT", "19200"))
+    qdrant_port = int(os.getenv("KNOWFORGE_TEST_QDRANT_PORT", "16333"))
+    minio_port = int(os.getenv("KNOWFORGE_TEST_MINIO_PORT", "19000"))
 
     for service, port in [
         ("postgres", pg_port),
@@ -119,8 +119,8 @@ def compose_endpoints() -> ServiceEndpoints:
 
     return ServiceEndpoints(
         postgres_dsn=(
-            f"postgresql+asyncpg://wikforge_test:wikforge_test_secret@"
-            f"{host}:{pg_port}/wikforge_test"
+            f"postgresql+asyncpg://knowforge_test:knowforge_test_secret@"
+            f"{host}:{pg_port}/knowforge_test"
         ),
         redis_url=f"redis://{host}:{redis_port}/0",
         opensearch_url=f"http://{host}:{os_port}",
@@ -162,8 +162,8 @@ def testcontainers_endpoints() -> Iterator[ServiceEndpoints]:
         compose.wait_for("http://localhost:19200/_cluster/health")
         yield ServiceEndpoints(
             postgres_dsn=(
-                "postgresql+asyncpg://wikforge_test:wikforge_test_secret@"
-                "127.0.0.1:15432/wikforge_test"
+                "postgresql+asyncpg://knowforge_test:knowforge_test_secret@"
+                "127.0.0.1:15432/knowforge_test"
             ),
             redis_url="redis://127.0.0.1:16379/0",
             opensearch_url="http://127.0.0.1:19200",
@@ -182,8 +182,8 @@ def integration_endpoints(request: pytest.FixtureRequest) -> ServiceEndpoints:
     """根据环境变量自动选择端点提供者。
 
     - 默认：使用 ``compose_endpoints``（需先 ``docker compose up``）
-    - 设置 ``WIKFORGE_USE_TESTCONTAINERS=1``：使用 ``testcontainers_endpoints``
+    - 设置 ``KNOWFORGE_USE_TESTCONTAINERS=1``：使用 ``testcontainers_endpoints``
     """
-    if os.getenv("WIKFORGE_USE_TESTCONTAINERS") == "1":
+    if os.getenv("KNOWFORGE_USE_TESTCONTAINERS") == "1":
         return request.getfixturevalue("testcontainers_endpoints")
     return request.getfixturevalue("compose_endpoints")

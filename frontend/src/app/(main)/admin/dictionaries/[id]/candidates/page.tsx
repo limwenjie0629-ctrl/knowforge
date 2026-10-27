@@ -38,7 +38,7 @@ const DEFAULT_PARAMS = {
 };
 
 function ignoredKey(dictId: string) {
-  return `wikforge:dict:${dictId}:ignored-candidates`;
+  return `knowforge:dict:${dictId}:ignored-candidates`;
 }
 
 function loadIgnored(dictId: string): Set<string> {

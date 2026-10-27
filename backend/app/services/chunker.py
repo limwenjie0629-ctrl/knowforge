@@ -279,7 +279,7 @@ class IntelligentChunker:
 
         # 预处理: 合并 "只有 heading 没有 blocks" 的 section 到下一个 section,
         # 避免短文档的 H1 被独立切成无意义的小 chunk。
-        # 例: "# Wikforge 是什么\n正文..." 会先被切成两个 section, 这里再合回去。
+        # 例: "# Knowforge 是什么\n正文..." 会先被切成两个 section, 这里再合回去。
         sections = self._merge_heading_only_sections(sections)
 
         for section in sections:

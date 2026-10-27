@@ -32,7 +32,7 @@ _platforms:
 
 
 # ─────────────────────────────────────────────────────────────────────────
-# 暴露给 wikforge 的虚拟模型清单
+# 暴露给 knowforge 的虚拟模型清单
 # ─────────────────────────────────────────────────────────────────────────
 model_list:
   # ─── Chat 模型 (CPA 平台) ───────────────────────────────────────────
@@ -83,7 +83,7 @@ model_list:
       model: openai/text-embedding-v3
 
   # ─── Vision 模型 ────────────────────────────────────────────────────
-  # 用于 wikforge UniversalParser (L3 LLM 兜底): 扫描版 PDF / 复杂版面
+  # 用于 knowforge UniversalParser (L3 LLM 兜底): 扫描版 PDF / 复杂版面
   # 调用方式: messages 含 {"type":"image_url", "image_url":...}
   #
   # 当前主用 gpt-5.5 (CPA, 自带多模态能力, 与 chat 模型同源便于切换)
@@ -98,7 +98,7 @@ model_list:
 # 全局设置
 # ─────────────────────────────────────────────────────────────────────────
 litellm_settings:
-  # 缓存(Redis): 复用 wikforge-redis, 用 DB 1 隔离 wikforge 业务键
+  # 缓存(Redis): 复用 knowforge-redis, 用 DB 1 隔离 knowforge 业务键
   cache: true
   cache_params:
     type: redis
@@ -106,7 +106,7 @@ litellm_settings:
     port: 6379
     db: 1
 
-  # 单次请求超时 (秒). wikforge 后端有自己的超时控制, 这里设大点避免双重超时
+  # 单次请求超时 (秒). knowforge 后端有自己的超时控制, 这里设大点避免双重超时
   request_timeout: 120
 
   # 单上游失败本地重试次数

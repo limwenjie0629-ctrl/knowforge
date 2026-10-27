@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/banner.svg" alt="Wikforge" width="100%"/>
+<img src="docs/assets/banner.svg" alt="Knowforge" width="100%"/>
 
 <br/>
 
@@ -8,7 +8,7 @@
   <a href="#-quick-start"><img src="https://img.shields.io/badge/部署-make_first--run-7C3AED?style=for-the-badge&logo=docker&logoColor=white" alt="Quick Start"/></a>
   <a href="docs/deploy.md"><img src="https://img.shields.io/badge/文档-deploy.md-4F46E5?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Docs"/></a>
   <a href="#-roadmap"><img src="https://img.shields.io/badge/Roadmap-55_项-22C55E?style=for-the-badge&logo=todoist&logoColor=white" alt="Roadmap"/></a>
-  <a href="https://github.com/fanxuankai/wikforge/actions/workflows/ci.yml"><img src="https://github.com/fanxuankai/wikforge/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"/></a>
+  <a href="https://github.com/limwenjie0629-ctrl/knowforge/actions/workflows/ci.yml"><img src="https://github.com/limwenjie0629-ctrl/knowforge/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"/></a>
 </p>
 
 <p>
@@ -88,7 +88,7 @@ open http://localhost:6333/dashboard # Qdrant Dashboard
 
 | 服务 | 入口 | 用户名 | 密码 (`.env` key) |
 |---|---|---|---|
-| **Wikforge 主系统** | http://localhost | `INITIAL_ADMIN_EMAIL` | `INITIAL_ADMIN_PASSWORD` |
+| **Knowforge 主系统** | http://localhost | `INITIAL_ADMIN_EMAIL` | `INITIAL_ADMIN_PASSWORD` |
 | **API 文档** (Swagger) | http://localhost:8000/docs | — (登录后复用主系统 JWT) | — |
 | **LiteLLM Admin UI** | http://localhost:4000/ui | `LITELLM_UI_USERNAME` | `LITELLM_UI_PASSWORD` |
 | **LiteLLM Master Key** (调 API) | http://localhost:4000 | — | `LITELLM_MASTER_KEY` |
@@ -96,7 +96,7 @@ open http://localhost:6333/dashboard # Qdrant Dashboard
 | **MinIO Console** | http://localhost:9001 | `MINIO_ACCESS_KEY` | `MINIO_SECRET_KEY` |
 | **Qdrant Dashboard** | http://localhost:6333/dashboard | — (内网信任,无鉴权) | — |
 | **OpenSearch** | http://localhost:9200 | `OPENSEARCH_USER` | `OPENSEARCH_PASSWORD` |
-| **PostgreSQL** | `localhost:15432` | `POSTGRES_USER` (默认 `wikforge`) | `POSTGRES_PASSWORD` |
+| **PostgreSQL** | `localhost:15432` | `POSTGRES_USER` (默认 `knowforge`) | `POSTGRES_PASSWORD` |
 | **Redis** | `localhost:16379` | — | `REDIS_PASSWORD` (默认空) |
 
 **快速查当前真实凭证** (本机执行):
@@ -123,7 +123,7 @@ flowchart LR
     User([👤 用户])
     Browser[🌐 浏览器]
 
-    subgraph Wikforge["🚀 Wikforge"]
+    subgraph Knowforge["🚀 Knowforge"]
         FE[Next.js 14<br/>前端]
         API[FastAPI<br/>API Server]
         Worker[Celery 通用 Worker<br/>default 队列<br/>索引/嵌入等任务]
@@ -276,7 +276,7 @@ make reset           # 完全清理 (会丢数据!)
 ## 🗂️ 目录结构
 
 ```
-wikforge/
+knowforge/
 ├── backend/              # Python / FastAPI
 │   ├── app/
 │   │   ├── api/          # 路由层 (auth/documents/search/qa/admin_*)

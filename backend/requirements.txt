@@ -1,4 +1,4 @@
-# Wikforge backend Python dependencies
+# Knowforge backend Python dependencies
 # Keep this file in sync with [project.dependencies] in pyproject.toml.
 # Versions use lower bounds with safe upper bounds to avoid major-version breaks.
 

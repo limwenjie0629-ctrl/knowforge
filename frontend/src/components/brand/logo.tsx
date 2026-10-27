@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Wikforge 品牌 Logo (SVG)。
+ * Knowforge 品牌 Logo (SVG)。
  *
  * 设计语言:
  * - 蓝紫色块 + 白色 W 字母, 与默认 shadcn 中性色拉开区别
@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
  *
  * 也作为 favicon 的 SVG 源, 通过 src/app/icon.tsx 渲染成 PNG/ICO。
  */
-export function WikforgeLogo({
+export function KnowforgeLogo({
   size = 32,
   className,
   withText = false,
@@ -48,7 +48,7 @@ export function WikforgeLogo({
         />
       </svg>
       {withText && (
-        <span className="text-lg font-bold tracking-tight">Wikforge</span>
+        <span className="text-lg font-bold tracking-tight">Knowforge</span>
       )}
     </div>
   );

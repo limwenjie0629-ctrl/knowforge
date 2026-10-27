@@ -363,7 +363,7 @@ def _build_app(
         async def _override_admin():
             user = MagicMock()
             user.id = uuid.uuid4()
-            user.email = "admin@wikforge.local"
+            user.email = "admin@knowforge.local"
             return user
 
     async def _override_db():

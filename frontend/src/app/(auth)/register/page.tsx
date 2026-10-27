@@ -13,7 +13,7 @@ export default function RegisterPage() {
   return (
     <Card>
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl">注册 Wikforge</CardTitle>
+        <CardTitle className="text-2xl">注册 Knowforge</CardTitle>
         <CardDescription>创建账号以开始使用企业知识库</CardDescription>
       </CardHeader>
       <CardContent>

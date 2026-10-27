@@ -14,7 +14,7 @@ export type Fixtures = {
 
 /** 默认凭据（CI 与本地都用这套） */
 export const DEFAULT_USER = {
-  email: process.env.E2E_USERNAME ?? 'e2e@wikforge.local',
+  email: process.env.E2E_USERNAME ?? 'e2e@knowforge.local',
   password: process.env.E2E_PASSWORD ?? 'e2e-pass-123',
 };
 

@@ -37,7 +37,7 @@ docker compose -f docker-compose.test.yml down -v
 或用 testcontainers 自动管理：
 
 ```bash
-WIKFORGE_USE_TESTCONTAINERS=1 pytest backend/tests/integration --run-integration
+KNOWFORGE_USE_TESTCONTAINERS=1 pytest backend/tests/integration --run-integration
 ```
 
 注：本目录下大多数测试已通过 mock 后端覆盖端到端逻辑，**无需**容器。容器模式

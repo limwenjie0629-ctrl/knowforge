@@ -1,5 +1,5 @@
 #!/bin/bash
-# 自动为 LiteLLM Proxy 创建独立数据库,避免污染 wikforge 主库。
+# 自动为 LiteLLM Proxy 创建独立数据库,避免污染 knowforge 主库。
 # Postgres 镜像会在首次初始化时执行 /docker-entrypoint-initdb.d/*.sh。
 set -e
 
